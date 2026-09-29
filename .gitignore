@@ -1,0 +1,17 @@
+# idea
+.idea/
+
+# claude
+.claude
+
+# platform specific files
+.DS_Store
+
+# environment
+.env
+
+# directories
+tmp/
+node_modules/
+dist/
+coverage/

@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────────────
+#  Which runtimes this project needs.
+# ─────────────────────────────────────────────────────────────
+[tools]
+node = "26.9"
+
+# ─────────────────────────────────────────────────────────────
+#  Environment variables, scoped to this directory only.
+#  They appear when you cd in and vanish when you cd out.
+# ─────────────────────────────────────────────────────────────
+[env]
+NODE_ENV = "development"
+APP_NAME = "EchoScribe"
+
+# Load anything in a local .env file too (never commit that file).
+_.file = ".env"
+
+# ─────────────────────────────────────────────────────────────
+#  Named commands. Run them with: mise run <name>
+#  These replace the "scripts" block people normally hide in
+#  package.json, so the entry points live next to the runtime
+#  that executes them.
+# ─────────────────────────────────────────────────────────────
+[tasks.dev]
+description = "Start the local dev server with live reload"
+run = "npx vite"
+
+[tasks.test]
+description = "Run the full test suite once and exit"
+run = "npx vitest run"
+
+[tasks.watch]
+description = "Re-run tests on every file save (use this while coding)"
+run = "npx vitest"
+
+[tasks.build]
+description = "Produce the optimised production bundle"
+run = "npx vite build"
