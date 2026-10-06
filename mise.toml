@@ -29,6 +29,13 @@ run = "npx vite"
 description = "Run the full test suite once and exit"
 run = "npx vitest run"
 
+[tasks.debug]
+description = "Run Vitest in debug mode and automatically launch Google Chrome DevTools"
+run = """
+npx vitest --inspect-brk --no-file-parallelism
+open -a "Google Chrome" "chrome://inspect"
+"""
+
 [tasks.watch]
 description = "Re-run tests on every file save (use this while coding)"
 run = "npx vitest"
