@@ -21,6 +21,164 @@
     </header>
 
     <main id="main" tabindex="-1">
+      <section aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Transcribe as you speak</h1>
+
+        <p class="lead">
+          EchoScribe turns speech into text in real time, directly in
+          your browser. Nothing is uploaded, nothing is queued, and
+          you see the words while you are still saying them.
+        </p>
+
+        <p>
+          <a class="cta" href="#access">Request early access</a>
+        </p>
+
+        <img src="/img/interface.png"
+             width="960" height="540"
+             alt="The EchoScribe window showing a sentence appearing
+              word by word as it is spoken">
+      </section>
+
+      <!-- aria-labelledby points at the h2, so this <section>
+           becomes a named region landmark. -->
+      <section id="features" aria-labelledby="features-heading">
+        <h2 id="features-heading">What you get</h2>
+
+        <!-- Each feature is self-contained: an <article>.
+             Its <h3> supplies the accessible name. -->
+        <article aria-labelledby="f-live">
+          <h3 id="f-live">Live captions</h3>
+          <p>
+            Words appear under
+            <time datetime="PT0.3S">300&nbsp;milliseconds</time>
+            after you say them, so you can correct yourself as you go.
+          </p>
+        </article>
+
+        <article aria-labelledby="f-private">
+          <h3 id="f-private">Private by default</h3>
+          <p>
+            Recognition runs on your device through the
+            <abbr title="Web Speech Application Programming Interface">
+              Web Speech API</abbr>.
+            <strong>Your audio never leaves the browser.</strong>
+          </p>
+        </article>
+
+        <article aria-labelledby="f-export">
+          <h3 id="f-export">Export anywhere</h3>
+          <p>
+            Save a transcript as plain text, Markdown or
+            <abbr title="SubRip Subtitle">SRT</abbr> subtitles
+            with one keystroke.
+          </p>
+        </article>
+      </section>
+
+      <section id="pricing" aria-labelledby="pricing-heading">
+        <h2 id="pricing-heading">Pricing</h2>
+
+        <dl>
+          <dt>Free</dt>
+          <dd>Unlimited transcription, up to 30 minutes per session.</dd>
+
+          <dt>Pro</dt>
+          <dd>
+            <s>&euro;19</s> &euro;9 per month during early access.
+            Unlimited sessions and every export format.
+          </dd>
+        </dl>
+      </section>
+
+      <section id="access" aria-labelledby="access-heading">
+        <h2 id="access-heading">Request early access</h2>
+
+        <p>
+          We are letting people in a few hundred at a time. Tell us what
+          you would use it for and we will send an invite.
+        </p>
+
+        <form id="access-form"
+              method="post"
+              action="/api/early-access"
+              aria-labelledby="access-heading"
+              novalidate>
+
+          <!-- Empty at load. Module 3 writes success and error
+               messages here, and the screen reader announces them. -->
+          <p id="form-status" role="status" aria-live="polite"></p>
+
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name"
+                   autocomplete="name" required
+                   aria-describedby="name-hint">
+            <p id="name-hint" class="hint">
+              As you would like to be greeted.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email"
+                   autocomplete="email" required maxlength="254"
+                   aria-describedby="email-hint">
+            <p id="email-hint" class="hint">
+              We only use this to send your invite.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="use-case">What will you use it for?</label>
+            <select id="use-case" name="use_case" required>
+              <option value="">Choose one</option>
+              <option value="interviews">Interviews</option>
+              <option value="lectures">Lectures and lessons</option>
+              <option value="meetings">Meeting notes</option>
+              <option value="captioning">Live captioning</option>
+            </select>
+          </div>
+
+          <fieldset>
+            <legend>How often should we email you?</legend>
+
+            <label>
+              <input type="radio" name="frequency" value="launch" checked>
+              Only when my invite is ready
+            </label>
+
+            <label>
+              <input type="radio" name="frequency" value="monthly">
+              Monthly product updates
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Which languages do you need?</legend>
+
+            <label>
+              <input type="checkbox" name="langs" value="en"> English
+            </label>
+            <label>
+              <input type="checkbox" name="langs" value="nl"> Dutch
+            </label>
+            <label>
+              <input type="checkbox" name="langs" value="ar"> Arabic
+            </label>
+          </fieldset>
+
+          <div class="field">
+            <label for="notes">
+              Anything else? <span class="optional">(optional)</span>
+            </label>
+            <textarea id="notes" name="notes" rows="4"
+                      maxlength="500"></textarea>
+          </div>
+
+          <button type="submit">Request access</button>
+        </form>
+      </section>
     </main>
 
     <footer>
