@@ -31,9 +31,8 @@ describe("page landmarks", () => {
     // ...and no duplicates, or the user cannot tell them apart.
     expect(new Set(names).size).toBe(names.length);
 
-    expect(
-      screen.getByRole("navigation", {name: "Main"})
-    ).toBeInTheDocument();
+    expect(screen.getByRole("navigation", {name: "Main"})).toBeInTheDocument();
+    expect(screen.getByRole("navigation", {name: "Legal"})).toBeInTheDocument();
   });
 
   it("starts with a skip link that targets the main landmark", async () => {
